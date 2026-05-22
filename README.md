@@ -1,0 +1,3 @@
+## Agent MyLA
+
+**MyLA** (short for My Learning Assistant) is a multi-agent personal learning assistant backed by a knowledge base. Give MyLA a topic to learn and MyLA will teach it to you in a intuitive, top-down approach. MyLA prepares sub-topic to learn, cross checks the backing knowledge DB for current state of any related topics and attempts to teach each topic in an intuitive way, from basics.
