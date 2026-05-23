@@ -9,3 +9,8 @@ dist/
 .coverage
 coverage.xml
 .env
+
+chainlit.md
+.chainlit/cache/
+.chainlit/uploads/
+.chainlit/tmp/
