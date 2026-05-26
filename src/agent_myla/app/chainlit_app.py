@@ -20,7 +20,7 @@ async def on_message(message: cl.Message) -> None:
 
     final_state: dict[str, Any] = {}
 
-    async for event in graph.astream(start_state, stream_mode="updates"):
+    async for event in graph.astream(start_state, stream_mode="updates"):  # type: ignore[call-overload]
         for node_name, node_result in event.items():
             if node_result is None:
                 log.error("node_result is None for node %s", node_name)
@@ -31,4 +31,4 @@ async def on_message(message: cl.Message) -> None:
                 step.output = "\n ".join(notes) if notes else "(step completed)"
 
     reply = final_state.get("assistant_message", "(no reply produced / stub)")
-    await cl.Message(content=reply).send()
+    await cl.Message(content=reply).send()  # type: ignore[no-untyped-call]
