@@ -10,10 +10,14 @@ from __future__ import annotations
 import logging
 from typing import cast
 
+from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.messages import HumanMessage, SystemMessage
 from pydantic import BaseModel, Field
 
 from agent_myla.domain.models import ArticleStatus, ConceptNode, KBContent, PlannerOutput
 from agent_myla.domain.state import TutorState
+from agent_myla.llm.factory import get_planner_llm
+from agent_myla.prompts.planner_prompts import PLANNER_PROMPT, planner_user_prompt
 
 log = logging.getLogger(__name__)
 
@@ -38,7 +42,9 @@ class FinalPlannedConcepts(BaseModel):
     concepts: list[ConceptProposal] = Field(description="a list of concepts", default_factory=list)
 
 
-async def _create_concept_proposals(topic: str, kb_content: KBContent) -> list[ConceptProposal]:
+async def _fake_create_concept_proposals(
+    topic: str, kb_content: KBContent
+) -> list[ConceptProposal]:
     return [
         ConceptProposal(
             concept_id=topic,
@@ -58,7 +64,19 @@ async def _create_concept_proposals(topic: str, kb_content: KBContent) -> list[C
 
 
 async def create_concept_proposals(topic: str, kb_content: KBContent) -> list[ConceptProposal]:
-    return await _create_concept_proposals(topic, kb_content)
+    model: BaseChatModel = get_planner_llm()
+    chain = model.with_structured_output(FinalPlannedConcepts)
+    existing_ids = [c for c in kb_content.existing_concepts]
+    messages = [
+        SystemMessage(content=PLANNER_PROMPT),
+        HumanMessage(content=planner_user_prompt(topic, existing_ids)),
+    ]
+    planner_result: FinalPlannedConcepts = cast(FinalPlannedConcepts, await chain.ainvoke(messages))
+    log.info(
+        f"Planner result contains : {len(planner_result.concepts)}, "
+        f"concepts: {[c.concept_name for c in planner_result.concepts]}"
+    )
+    return [c for c in planner_result.concepts]
 
 
 async def create_plan_from_proposals(
