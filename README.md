@@ -129,16 +129,18 @@ Key invariant: **the LLM never decides KB facts.** It proposes concept structure
 | Version | Focus |
 |---|---|
 | **v1** (current) | Thin end-to-end loop: Planner + 3 Researchers + Librarian + KB writer; Chainlit; LangSmith; 10-topic golden set |
-| **v1.5** | Excalidraw visualization node; concept diagrams saved to KB |
-| **v2** | Advanced RAG (hybrid + RRF + rerank + HyDE); RAGAS + LLM-as-judge eval; self-hosted vLLM; Redis semantic cache; Docker; CrewAI comparison |
+| **v1.5** | Excalidraw visualization node via MCP server; concept diagrams saved to KB |
+| **v2** | Replace KB (markdown -> pgvector), Advanced RAG (hybrid + RRF + rerank + HyDE); RAGAS + LLM-as-judge eval; self-hosted vLLM; Redis semantic cache; Docker; CrewAI comparison |
 | **v3** | DPO fine-tune; citation-verification agent; safety/guardrails; multimodal diagram extraction; arXiv daemon; continuous eval |
 
 ### Current iteration status
 
+## v1
+
 - [x] M0 — walking skeleton (Chainlit + linear stubbed graph)
 - [x] 1a — Planner decomposition logic: KB-diff, recursion caps, dedup (faked LLM)
-- [ ] 1b — real LLM behind `propose_plan`; `llm/factory.py`; structured output
-- [ ] 2 — `research` becomes a `Send` fan-out of 3 Researchers
+- [x] 1b — real LLM behind `propose_plan`; `llm/factory.py`; structured output
+- [x] 2 — `research` becomes a `Send` fan-out of 3 Researchers
 - [ ] 3 — Librarian (assemble + reconcile)
 - [ ] 4 — KB writer + git + `kb/` Store read/write
 - [ ] 5 — async topic queue, LangSmith tracing, seed KB + golden set
