@@ -14,7 +14,7 @@ working = solid
 deep = expert"""
 
 
-SourceType = Literal["blog", "wikipedia", "github", "arxiv"]
+SourceType = Literal["blog", "wikipedia", "github", "arxiv", "youtube"]
 
 ResearchLayer = Literal["intuition", "mechanism", "formalism"]
 """The three levels every concept note is written at."""
@@ -59,7 +59,9 @@ class ComputedExample(BaseModel):
     description: str = Field(description="What this example is about")
     inputs: dict[str, Any] = Field(description="Input for the computation to be performed")
     output: str = Field(description="A rendered results, example a matrix etc")
-    tool_used: Literal["numpy"] = Field(description="Tool used for performing the calculation")
+    tool_used: Literal["numpy", "manual_calculation"] = Field(
+        description="Tool used for performing the calculation"
+    )
 
 
 class KBContent(BaseModel):
