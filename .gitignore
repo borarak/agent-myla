@@ -16,3 +16,5 @@ chainlit.md
 .chainlit/tmp/
 
 docs/
+kb/*.md
+kb/index.json
