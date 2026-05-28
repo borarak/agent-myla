@@ -19,12 +19,12 @@ from agent_myla.graph.nodes import (
 # ---------------------------------------------------------------------------
 
 
-@pytest.fixture(scope="module")  # type: ignore[misc]
+@pytest.fixture(scope="module")  # type: ignore[misc, untyped-decorator]
 def graph() -> CompiledStateGraph:
     return build_graph()
 
 
-@pytest.fixture  # type: ignore[misc]
+@pytest.fixture  # type: ignore[misc, untyped-decorator]
 def base_state() -> TutorState:
     return TutorState(user_topic="qlora")
 

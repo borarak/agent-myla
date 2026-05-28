@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import functools
+from pathlib import Path
 
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -18,20 +19,22 @@ class Settings(BaseSettings):  # type: ignore[misc]
     planner_model: str = Field(
         default="gpt-4o-mini", description="OpenAI model used by the planner role"
     )
-
-    # Per-role model selection
     researcher_model: str = Field(
-        default="gpt-4o-mini", description="OpenAI model used by the planner role"
+        default="gpt-4o-mini", description="OpenAI model used by the researcher role"
     )
-
-    # Per-role model selection
     librarian_model: str = Field(
-        default="gpt-4o-mini", description="OpenAI model used by the planner role"
+        default="gpt-4o-mini", description="OpenAI model used by the librarian role"
     )
 
     # Graph caps
     max_concept_depth: int = Field(
         default=2, ge=0, le=4, description="Maximum recursion depth of a root topic into sub-topics"
+    )
+
+    # KB storage
+    kb_path: Path = Field(
+        default=Path("./kb"),
+        description="Root directory where markdown notes and index.json are written",
     )
 
 

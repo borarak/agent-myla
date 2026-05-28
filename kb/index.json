@@ -1,0 +1,94 @@
+{
+  "qlora": {
+    "status": "deep",
+    "path": "qlora.md"
+  },
+  "low_rank_adaptation": {
+    "status": "working",
+    "path": "low_rank_adaptation.md"
+  },
+  "fine_tuning": {
+    "status": "deep",
+    "path": "fine_tuning.md"
+  },
+  "transformer_models": {
+    "status": "deep",
+    "path": "transformer_models.md"
+  },
+  "qlora-introduction": {
+    "status": "deep",
+    "path": "qlora-introduction.md"
+  },
+  "lora-concepts": {
+    "status": "deep",
+    "path": "lora-concepts.md"
+  },
+  "transformers-overview": {
+    "status": "deep",
+    "path": "transformers-overview.md"
+  },
+  "nlp-fundamentals": {
+    "status": "deep",
+    "path": "nlp-fundamentals.md"
+  },
+  "model-quantization": {
+    "status": "deep",
+    "path": "model-quantization.md"
+  },
+  "ai-model-training": {
+    "status": "deep",
+    "path": "ai-model-training.md"
+  },
+  "qlora-definition": {
+    "status": "deep",
+    "path": "qlora-definition.md"
+  },
+  "qlora-architecture": {
+    "status": "deep",
+    "path": "qlora-architecture.md"
+  },
+  "quantization-introduction": {
+    "status": "deep",
+    "path": "quantization-introduction.md"
+  },
+  "fine-tuning-methods": {
+    "status": "deep",
+    "path": "fine-tuning-methods.md"
+  },
+  "quantization-techniques": {
+    "status": "deep",
+    "path": "quantization-techniques.md"
+  },
+  "large-language-models": {
+    "status": "deep",
+    "path": "large-language-models.md"
+  },
+  "qlora-deep-learning-basics": {
+    "status": "deep",
+    "path": "qlora-deep-learning-basics.md"
+  },
+  "qlora-model-optimization": {
+    "status": "deep",
+    "path": "qlora-model-optimization.md"
+  },
+  "hf4-quantization": {
+    "status": "deep",
+    "path": "hf4-quantization.md"
+  },
+  "ml4-finetuning": {
+    "status": "deep",
+    "path": "ml4-finetuning.md"
+  },
+  "qlora-principles": {
+    "status": "deep",
+    "path": "qlora-principles.md"
+  },
+  "foundation-models": {
+    "status": "deep",
+    "path": "foundation-models.md"
+  },
+  "optimization-techniques": {
+    "status": "deep",
+    "path": "optimization-techniques.md"
+  }
+}

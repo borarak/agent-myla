@@ -24,7 +24,7 @@ def _make_research_output(
     )
 
 
-@pytest.fixture(scope="module")  # type: ignore[misc]
+@pytest.fixture(scope="module")  # type: ignore[misc, untyped-decorator]
 def fake_assembly() -> _LibrarianAssembly:
     return _LibrarianAssembly(
         frontmatter={"title": "Attention", "concept_id": "attention", "status": "working"},
@@ -34,7 +34,7 @@ def fake_assembly() -> _LibrarianAssembly:
     )
 
 
-@pytest.mark.asyncio  # type: ignore[misc]
+@pytest.mark.asyncio  # type: ignore[misc, untyped-decorator]
 async def test_librarian_groups_by_concept(fake_assembly: _LibrarianAssembly) -> None:
     """Node groups research outputs by concept_id and calls the LLM once per concept."""
     mock_chain = AsyncMock(return_value=fake_assembly)

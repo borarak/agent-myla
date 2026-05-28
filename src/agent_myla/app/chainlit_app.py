@@ -14,7 +14,7 @@ log = logging.getLogger(__name__)
 graph = build_graph()
 
 
-@cl.on_message  # type: ignore[misc]
+@cl.on_message  # type: ignore[misc, untyped-decorator]
 async def on_message(message: cl.Message) -> None:
     start_state: dict[str, str] = {"user_topic": message.content}
 
