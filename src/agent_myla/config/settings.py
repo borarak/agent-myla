@@ -24,6 +24,11 @@ class Settings(BaseSettings):  # type: ignore[misc]
         default="gpt-4o-mini", description="OpenAI model used by the planner role"
     )
 
+    # Per-role model selection
+    librarian_model: str = Field(
+        default="gpt-4o-mini", description="OpenAI model used by the planner role"
+    )
+
     # Graph caps
     max_concept_depth: int = Field(
         default=4, ge=0, le=4, description="Maximum recursion depth of a root topic into sub-topics"

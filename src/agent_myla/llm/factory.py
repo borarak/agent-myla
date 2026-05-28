@@ -22,3 +22,12 @@ def get_researcher_llm() -> BaseChatModel:
         model=settings.researcher_model,
         api_key=settings.openai_api_key,
     )
+
+
+def get_librarian_llm() -> BaseChatModel:
+    """Return the chat model configured for the planner role."""
+    settings = get_settings()
+    return ChatOpenAI(
+        model=settings.librarian_model,
+        api_key=settings.openai_api_key,
+    )
