@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import conftest
-
 from agent_myla.domain.models import KBContent
 from agent_myla.graph.nodes.planner import (
     ConceptProposal,
     create_concept_proposals,
     create_plan_from_proposals,
 )
+from tests.unit import conftest
 
 
 def make_proposal(

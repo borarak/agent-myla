@@ -34,7 +34,7 @@ def distributed_research(state: TutorState) -> list[Send]:
 
     sends: list[Send] = []
 
-    for c in concepts_to_research:
+    for c_idx, c in enumerate(concepts_to_research):
         if c.existing_status == "deep":
             continue
         for r_layer in get_args(ResearchLayer):
@@ -48,6 +48,7 @@ def distributed_research(state: TutorState) -> list[Send]:
                         parent_topic=parent_topic,
                         rationale=c.rationale,
                         prereqs_known=c.prereqs,
+                        concept_index=c_idx + 1,
                     ),
                 )
             )

@@ -76,6 +76,11 @@ warn_unused_configs = true
 warn_unused_ignores = false
 plugins = ["pydantic.mypy"]
 
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_any_generics = false
+warn_return_any = false
+
 # ---------------------------------------------------------------------------
 # Tests + coverage
 # ---------------------------------------------------------------------------

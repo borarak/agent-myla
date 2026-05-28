@@ -46,3 +46,4 @@ class ResearchInput(TypedDict):
     prereqs_known: list[str]
     parent_topic: str
     layer: ResearchLayer
+    concept_index: int

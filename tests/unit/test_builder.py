@@ -91,7 +91,7 @@ async def test_planner_node_notes_is_list(base_state: TutorState) -> None:
 
 
 async def test_research_node_returns_node_notes(base_state: TutorState) -> None:
-    result = await research_node(base_state)
+    result = await research_node(base_state)  # type: ignore[arg-type]
     assert "node_notes" in result
     assert isinstance(result["node_notes"], list)
 

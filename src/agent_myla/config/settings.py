@@ -31,7 +31,7 @@ class Settings(BaseSettings):  # type: ignore[misc]
 
     # Graph caps
     max_concept_depth: int = Field(
-        default=4, ge=0, le=4, description="Maximum recursion depth of a root topic into sub-topics"
+        default=2, ge=0, le=4, description="Maximum recursion depth of a root topic into sub-topics"
     )
 
 

@@ -13,11 +13,11 @@ before attempting to understand the topic sepcified by the user to learn.
 
 RULES:
 1. The user specified topic is the root concept (topic itself) and has depth=0.
-2. Each pre-requisite is one level deeper. Maximum depth is 4.
+2. Each pre-requisite is one level deeper. Maximum depth is 2.
 3. DO NOT propose / re-propose topic which already appear in the Knowledge Base 
 and are fully detailed (status is "deep")
-4. Keep the number of sub-topic for each concept small. Ideally aim for 3-5 sub-concepts
-and a maximum of 10 concepts (including the root concept itself)
+4. Keep the number of sub-topic for each concept small. Ideally aim for 2-3 sub-concepts
+and a maximum of 3 concepts (including the root concept itself)
 5. the concept_id parameter must be in slug case e.g `nf4-quantization`.
 6. A short valid reasoning must be provided why each sub-topic was chosen and is needed
 to fully teach the main topic to the user.

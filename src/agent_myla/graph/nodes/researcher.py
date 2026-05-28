@@ -35,7 +35,10 @@ class _ResearchContent(BaseModel):
         ge=0.0, le=1.0, description="Honest self-assessed content confidence (range of 0 to 1)"
     )
     fuzzy_areas: list[str] = Field(
-        description="Sub-topics the researcher could not explain confidently; empty list if none"
+        description=(
+            "Plain strings naming sub-topics the researcher could not explain confidently."
+            " Each element must be a bare string, not an object. Empty list if none."
+        )
     )
 
 
@@ -50,6 +53,7 @@ async def research_node(
     prereqs: list[str] = state["prereqs_known"]
     layer: str = state["layer"]
     rationale: str = state["rationale"]
+    concept_index: int = state["concept_index"]
 
     log.info("A researcher instance created for concept: %s [%s]", concept_name, layer)
 
@@ -70,6 +74,7 @@ async def research_node(
 
     result = ResearchOutput(
         concept_id=concept_id,
+        concept_name=concept_name,
         research_layer=layer,
         content_markdown=raw_result.content_markdown,
         sources=raw_result.sources,
@@ -88,5 +93,10 @@ async def research_node(
 
     return {
         "research_outputs": [result],
-        "node_notes": [f"[research] {concept_name} — produced: {result.content_markdown}"],
+        "node_notes": [
+            (
+                f"[research] concept {concept_index} / layer: {layer} /  {concept_name}"
+                f" Produced: {len(result.content_markdown)} words"
+            )
+        ],
     }
