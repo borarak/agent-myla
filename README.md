@@ -141,8 +141,8 @@ Key invariant: **the LLM never decides KB facts.** It proposes concept structure
 - [x] 1a — Planner decomposition logic: KB-diff, recursion caps, dedup (faked LLM)
 - [x] 1b — real LLM behind `propose_plan`; `llm/factory.py`; structured output
 - [x] 2 — `research` becomes a `Send` fan-out of 3 Researchers
-- [ ] 3 — Librarian (assemble + reconcile)
-- [ ] 4 — KB writer + git + `kb/` Store read/write
+- [x] 3 — Librarian (assemble + reconcile)
+- [x] 4 — KB writer + git + `kb/` Store read/write
 - [ ] 5 — async topic queue, LangSmith tracing, seed KB + golden set
 
 ---
